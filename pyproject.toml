@@ -2,7 +2,7 @@
 name = "NNtrain"
 version = "0.1.0"
 description = ""
-authors = ["kwchen <kwchen@pranaq.com>"]
+authors = ["gosienna <goshin@gmail.com>"]
 readme = "README.md"
 
 [[tool.poetry.source]]
