@@ -1,20 +1,29 @@
 [tool.poetry]
-name = "2d-duffusion-model-from-scratch"
+name = "NNtrain"
 version = "0.1.0"
 description = ""
 authors = ["kwchen <kwchen@pranaq.com>"]
 readme = "README.md"
 
+[[tool.poetry.source]]
+name = "pytorch-gpu"
+url = "https://download.pytorch.org/whl/cu121"
+priority = "supplemental"
+
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.10,<3.11"
 pandas = "^2.2.3"
-matplotlib = "^3.10.0"
-torch = "^2.5.1"
-torchvision = "^0.20.1"
+torch = [
+    { version = "=2.5.1+cu121", source = "pytorch-gpu", platform = "linux" },
+    { version = "=2.5.1+cu121", source = "pytorch-gpu", platform = "win32" },
+    { version = "=2.5.1", source = "pypi", platform = "darwin" },
+]
+
 pyarrow = "^18.1.0"
-numpy = "^2.2.1"
 tqdm = "^4.67.1"
 diffusers = "^0.32.1"
+torchvision = "^0.20.1"
+matplotlib = "^3.10.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.29.5"
